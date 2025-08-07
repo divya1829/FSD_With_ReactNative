@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Easy Circle Follow</title>
+  <style>
+    div {
+      position: absolute;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dot">&#9737;</div>
+
+  <script>
+    document.onmousemove = e=> {
+      dot.style.left= e.clientX + "px";
+      dot.style.top = e.clientY + "px";
+    }
+  </script>
+
+</body>
+</html>

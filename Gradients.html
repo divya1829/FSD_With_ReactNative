@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Gradient Designs</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background: rgb(222, 217, 217);
+      padding: 100px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+
+    .linear {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(to bottom right, rgb(104, 194, 161), rgb(132, 156, 222));
+    }
+
+    .radial {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgb(24, 189, 226), rgb(0, 28, 130));
+    }
+
+    .repeating-radial {
+      width:200px;
+      height:200px;
+      background: repeating-radial-gradient(circle, rgb(130, 171, 238), rgb(84, 179, 139) 5px, rgb(0, 78, 130) 10px);
+    }
+
+    .conic {
+      background: conic-gradient(rgb(130, 177, 238) 9deg 90deg, rgb(66, 20, 129) 90deg 360deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="linear"></div>
+  <div class="radial"></div>
+  <div class="box repeating-radial"></div>
+  <div class="box conic"></div>
+</body>
+</html>

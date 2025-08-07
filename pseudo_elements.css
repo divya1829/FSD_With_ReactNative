@@ -1,0 +1,50 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    
+}
+.demo{
+    font-style: oblique;
+    font-size:larger;
+    z-index:1;
+    position: relative;
+    border: 2px solid black;
+    padding-bottom: 5px; 
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+    /* background-color: antiquewhite; */
+    
+}
+.demo::before{
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    content: "";
+    background-color: aqua;
+    transform: translateX(-90px) skew(50deg);
+    transition: transform.5s linear;
+    
+    
+}
+.demo::after{
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    content: "";
+    background-color:fuchsia;
+    transform: translateX(90px) skew(50deg);
+    transition: transform .5s linear;
+    
+}
+.demo:hover::before{
+    transform: translateX(-20px) skew(45deg);
+}
+.demo:hover::after{
+    transform: translateX(-30px) skew(45deg);
+
+}

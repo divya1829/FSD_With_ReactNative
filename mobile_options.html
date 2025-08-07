@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Menu options</title>
+        <style>
+        body{
+            background-color: rgb(236, 201, 235);
+        }
+        .mobile_options{
+            width: 200px;
+            background-color: aqua;
+            height: 100svh;
+            flex-direction: column;
+            display: flex;
+            padding: 10px;
+            line-height: 2;
+            transition: left 0.5s ease-out;
+            cursor: pointer;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            
+
+        }
+        .mobile_options div{
+             border-bottom: 2px solid black;
+             border-radius: 5px;
+             cursor: pointer;
+           
+
+        }
+        .mobile_options div:hover{
+            background-color: rgb(176, 213, 201);
+            border-radius: 5px;
+        }
+        .mobile_options span{
+            font-size: 40px;
+            font-weight: 600;
+            /* padding-left: 160px; */
+            /* display: flex; */
+            /* align-items: end; */
+            text-align: end;
+
+        }
+        .menuoption{
+            font-size: 40px;
+            font-weight: 600;
+            /* padding-left: 160px; */
+            /* display: flex; */
+            /* align-items: end; */
+            text-align: start;
+            cursor: pointer;
+
+        }
+    </style>
+    </head>
+    <body>
+        <div class="menuoption" onclick="openmenu()">&equiv;</div>
+        <div class="mobile_options">
+        <span onclick="closemobile()">&times</span>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Pricing</div>
+        <div>Services</div>
+        
+    </div>
+        
+         <script>
+            function closemobile(){
+                document.getElementsByClassName("mobile_options")[0].style.left = "-220px";
+            }
+            function openmenu(){
+                document.getElementsByClassName("mobile_options")[0].style.left = "0px";
+            }
+         </script>
+
+    </body>
+</html>

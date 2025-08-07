@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>
+            JavaScript
+        </title>
+        <script>
+            // function fun(){
+            //     console.log('HAI')
+            // }
+           let count = 0;
+
+           function increaseCount() {
+           count++; // increase value
+           document.getElementById("counter").innerText = count; // update screen
+}
+
+function increaseCount() {
+  count++;
+  document.getElementById("counter").innerText = count;
+
+  if (count === 5) {
+    alert("You clicked 5 times!");
+  }
+}
+
+
+
+
+        </script>
+    </head>
+    <body>
+        
+        <!-- <button onclick="fun()">Hit-Meh</button>
+        <button ondblclick="console.log('Hellow')">Hit-Meh-Yaar</button>
+        <button onmouseup="console.log('Hiii')">Hit-Meee</button>
+        <button onmousedown="console.log('Hiii')">Hit-Mehh</button>
+        <button onmouseover="console.log('Hiii')">Hit-Mehhhh</button>
+        <button onmouseout="console.log('Mouse moved out!')">Move Out</button>
+        <button onmouseenter="console.log('Mouse Entered!')">Mouse Enter</button> -->
+        <button onclick="increaseCount()">Click Me</button>
+
+        <p id="counter">0</p>
+
+
+
+        
+
+
+    </body>
+</html>

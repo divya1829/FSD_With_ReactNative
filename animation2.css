@@ -1,0 +1,36 @@
+.box1, .box2 , .box3{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    animation: myanimation 2s infinite;
+    position: relative;
+       
+}
+.box1{
+    background-color: rgb(159, 252, 252);
+    animation-timing-function: linear;
+}
+.box2{
+    background-color: aquamarine;
+    animation-timing-function: ease-in;
+}
+.box3{
+    background-color: rgb(33, 198, 143);
+    animation-timing-function: ease-in-out;
+}
+@keyframes myanimation{
+    0%{
+        left:0px;
+        background-color:blueviolet
+    }
+    50%{
+        left: 70px;
+        background-color: rgb(179, 150, 206);
+    }
+    100%{
+        left: 250px;
+        background-color: rgb(130, 12, 52);
+    }
+
+
+}

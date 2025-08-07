@@ -1,0 +1,53 @@
+body{
+  display: flex;
+  align-items: center;
+  height: 100svh;
+  justify-content: center;
+}
+.grandparend{
+    perspective: 250px;
+}
+.parent{
+    
+    position: relative;
+    /* align-items: center; */
+    transform-style: preserve-3d;
+    transition: transform 1s linear;
+    /* justify-content: center; */
+    height: 100px;
+    width: 100px;
+}
+
+.front{
+  top:0px;
+  display: flex;
+  position: absolute;
+  background-color:blueviolet;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width:100px;
+  backface-visibility: hidden;
+  
+
+}
+.back{
+  top:0px;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  background-color: aqua;
+  align-items: center;
+  height: 100px;
+  justify-content: center;
+  width:100px;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+
+
+}
+.parent:hover{
+    transform: rotateY(180deg);
+}
+

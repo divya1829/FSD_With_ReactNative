@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Table Generator</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    } 
+    td, th {
+      border: 2px solid black;
+      padding: 50px 60px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="input-box">
+    <input type="number" placeholder="Enter number of rows" id="rows" required />
+    <input type="number" placeholder="Enter number of columns" id="cols" required />
+    <button onclick="createTable()">Create Table</button>
+  </div>
+
+  <script src="./TablesScript.js"></script>
+
+</body>
+</html>

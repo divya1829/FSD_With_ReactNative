@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+}
+
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2874f0;
+}
+
+.plus {
+  font-size: 12px;
+  color: grey;
+}
+
+.plus-highlight {
+  color: #ffc200;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 400px;
+  margin: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.header-options span {
+  margin-left: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.full-screen-row {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 10px;
+  background-color: #f1f1f1;
+  gap: 20px;
+}
+
+.product-box {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  width: 30%;
+  height: 100%;
+  min-width: 300px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-heading h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 20px;
+  color: #222;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  height: 500px;
+}
+
+.product {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  background: white;
+}
+
+.product img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 8px;
+
+}
+
+.product p {
+  font-size: 14px;
+}
+
+.product span {
+  color: green;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-box {
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .header-options {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+}

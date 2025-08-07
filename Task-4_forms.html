@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Reservation Form</title>
+</head>
+<body>
+
+  <h2>Travel reservation form</h2>
+  <p><b> * denotes mandatory</b></p>
+
+  <form>
+    <lable>Full name*:</lable> <br>
+    <input type="text" placeholder="FirstName LastName" required><br><br>
+
+    <lable>Email address*:</lable> <br>
+    <input type="email" placeholder="EMAIL_ADDRESS" required><br><br>
+
+    <lable>Select Tour Package*:</lable> <br>
+    <select required>
+      <option>Goa</option>
+      <option>Kashmir</option>
+      <option>Manali</option>
+    </select><br><br>
+
+    <lable>Arrival date*:</lable> <br>
+    <input type="date" required><br><br>
+
+    <lable>Number of persons*:</lable><br>
+    <input type="number" required><br><br>
+
+    <lable>What would you want to avail?*</lable> <br>
+    <lable> Boarding</lable><input type="checkbox" name="service" ><br>
+    <lable>Fooding</lable><input type="checkbox" name="service" > <br>
+    <lable>Sight seeing</lable><input type="checkbox" name="service" > <br><br>
+
+    <lable>Discount Coupon code:</lable> <br>
+    <input type="text"><br><br>
+
+    <lable>Terms and conditions*</lable> <br>
+    <input type="radio" name="terms" required> I agree
+    <input type="radio" name="terms"> I disagree<br><br>
+
+    <input type="submit" value="Complete reservation">
+  </form>
+
+</body>
+</html>

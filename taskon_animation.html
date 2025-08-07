@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Scene: Morning to Night</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .sky {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      animation: skyChange 10s linear infinite;
+      background: linear-gradient(to top, #fceabb, #f8b500);
+    }
+
+    @keyframes skyChange {
+      0%, 40% {
+        background: linear-gradient(to top, #ffffff, #97c4ef); /* Morning */
+      }
+      50%, 100% {
+        background: black; /* Night */
+      }
+    }
+
+    .sun {
+      position: absolute;
+      top: 80px;
+      right: 100px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at center, rgb(202, 202, 150), rgb(216, 225, 50));
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgb(222, 222, 130);
+      animation: sunAppear 10s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes sunAppear {
+      0%, 40% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .moon {
+      position: absolute;
+      top: 80px;
+      right: 100px;
+      width: 80px;
+      height: 80px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 30px #fff;
+      animation: moonAppear 10s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes moonAppear {
+      0%, 40% { opacity: 0; }
+      50%, 100% { opacity: 1; }
+    }
+
+    .cloud {
+      position: absolute;
+      top: 60px;
+      width: 100px;
+      height: auto;
+      opacity: 0.8;
+      animation: cloudFloat 10s linear infinite, cloudVisible 10s linear infinite;
+      z-index: 1;
+    }
+
+    .cloud:nth-child(1) { left: 100px; animation-delay: 0s; }
+    .cloud:nth-child(2) { left: 300px; top: 120px; animation-delay: 2s; }
+    .cloud:nth-child(3) { left: 600px; top: 90px; animation-delay: 4s; }
+
+    @keyframes cloudFloat {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(200px); }
+    }
+
+    @keyframes cloudVisible {
+      0%, 40% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .bird {
+      position: absolute;
+      top: 100px;
+      width: 50px;
+      height: auto;
+      animation: birdFly 8s linear infinite, birdVisible 10s linear infinite;
+      z-index: 1;
+    }
+
+    .bird:nth-child(1) { left: -60px; animation-delay: 0s; }
+    .bird:nth-child(2) { top: 160px; left: -80px; animation-delay: 3s; }
+
+    @keyframes birdFly {
+      0% { left: -60px; }
+      100% { left: 110%; }
+    }
+
+    @keyframes birdVisible {
+      0%, 40% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .road {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background: #333;
+      z-index: 2;
+    }
+
+    .lane-lines {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 3;
+    }
+
+    .lane-lines div {
+      width: 60px;
+      height: 4px;
+      background: white;
+      margin: 0 10px;
+    }
+
+    .tree-img {
+      position: absolute;
+      bottom: 100px;
+      width: 80px;
+      height: auto;
+      z-index: 3;
+    }
+
+    .tree-img.left1 { left: 40px; }
+    .tree-img.left2 { left: 160px; }
+    .tree-img.left3 { left: 240px; }
+    .tree-img.right1 { right: 40px; }
+    .tree-img.right2 { right: 120px; }
+
+    .car {
+      position: absolute;
+      bottom: 10px;
+      width: 110px;
+      animation: drive 5s linear infinite;
+      z-index: 4;
+    }
+
+    @keyframes drive {
+      0% { left: -200px; }
+      100% { left: 110%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky">
+    <div class="sun"></div>
+    <div class="moon"></div>
+
+    <!-- Clouds -->
+    <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" class="cloud" alt="Cloud" />
+    <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" class="cloud" alt="Cloud" />
+    <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" class="cloud" alt="Cloud" />
+
+    <!-- Birds -->
+    <img src="https://cdn-icons-png.flaticon.com/128/7441/7441358.png" class="bird" alt="Bird" />
+
+
+    <!-- Trees -->
+    <img src="https://cdn-icons-png.flaticon.com/128/685/685025.png" class="tree-img left1" alt="Tree" />
+    <img src="https://cdn-icons-png.flaticon.com/128/685/685025.png" class="tree-img left2" alt="Tree" />
+    <img src="https://cdn-icons-png.flaticon.com/128/685/685025.png" class="tree-img right1" alt="Tree" />
+    <img src="https://cdn-icons-png.flaticon.com/128/685/685025.png" class="tree-img right2" alt="Tree" />
+    <img src="https://cdn-icons-png.flaticon.com/128/685/685025.png" class="tree-img left3" alt="Tree" />
+
+    <!-- Car -->
+    <img class="car" src="https://cdn-icons-png.flaticon.com/128/3097/3097182.png" alt="Car" />
+
+    <!-- Road -->
+    <div class="road">
+      <div class="lane-lines">
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

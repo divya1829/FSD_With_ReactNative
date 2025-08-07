@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Visiting Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    .card {
+      width: 420px;
+      height: 240px;
+      background: linear-gradient(135deg, #f8fcf8, #7de696);
+      box-shadow: 0 8px 18px rgba(16, 16, 16, 0.2);
+      border-radius: 15px;
+      display: flex;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .left {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .left img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fefffe;
+    }
+
+    .vline {
+      width: 1px;
+      height: 190px;
+      background-color: #92b600;
+      margin: 0 15px;
+      border-radius: 1px;
+      z-index: 1;
+    }
+
+    .right {
+      flex: 1;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #7b770e;
+      margin-bottom: 4px;
+    }
+
+    .course {
+      font-size: 15px;
+      color: #cbc61a;
+      margin-bottom: 4px;
+    }
+
+    .college {
+      font-size: 14px;
+      color: #635d5d;
+      margin-bottom: 25px;
+    }
+
+    .contact p {
+      font-size: 13px;
+      margin: 3px 0;
+      color: #444;
+    }
+
+    .contact i {
+      margin-right: 6px;
+      color: #0077b6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="decor-line"></div>
+    <div class="decor-circle"></div>
+    <div class="left">
+      <!-- Replace with your photo or college logo -->
+      <img src="./image.png" alt="Student Photo">
+    </div>
+
+    <div class="vline"></div>
+
+    <div class="right">
+      <div class="name">Sai Divya</div>
+      <div class="course">Full Stack Developer</div>
+      <div class="college">Technical Hub</div>
+      
+      <div class="contact">
+        <p><i>&#128222;</i> +91 xxxxx xxxxx</p>
+        <p><i>&#9993;</i> divya1862006@gmail.com</p>
+        <p><i>&#128279;</i> linkedin.com/in/saidivya2918/</p>
+        <p><i>&#127968;</i> Surampallem,East Godavari,AP</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

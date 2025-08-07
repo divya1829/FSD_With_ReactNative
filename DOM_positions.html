@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+
+    <body style = "position: relative;">
+        <button class="one" onclick="fun()">Top</button>
+        <button class="two" onclick = "fun1()">Bottom</button>
+        <button class="three" onclick = "fun2()">Left</button>
+        <button  class="four" onclick = "fun3()">Right</button>
+
+        <script>
+            function fun() {
+                document.getElementsByClassName("one")[0].style = "position:relative; top:0px;"
+            }
+            function fun1() {
+                document.getElementsByClassName("two")[0].style = "position:relative; bottom : -20px;"
+            }
+            function fun2() {
+                document.getElementsByClassName("three")[0].style = "position:relative; left : -20px;"
+            }
+            function fun3() {
+                document.getElementsByClassName("four")[0].style = "position:relative; right : -20px;"
+            }
+        </script>
+    </body>
+</html>

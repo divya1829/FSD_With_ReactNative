@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navigation Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1e1e2f;
+      padding: 12px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .logo img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-item {
+      position: relative;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .nav-item:hover .dropdown,
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      min-width: 180px;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s;
+    }
+
+    .dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown a:active {
+      background-color: #ddd;
+    }
+
+    .profile {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .profile img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    .profile .dropdown {
+      right: 0;
+      left: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="New Logo Icon" />
+      Brand
+    </div>
+
+    <div class="nav">
+      <div class="nav-item">HOME
+        <div class="dropdown">
+          <a href="#">INFO</a>
+          <a href="#">CONTACTS</a>
+          <a href="#">SOCIAL MEDIA</a>
+          <a href="#">MAP</a>
+        </div>
+      </div>
+      <div class="nav-item">ABOUT
+        <div class="dropdown">
+          <a href="#">PURPOSE</a>
+          <a href="#">RESULT</a>
+        </div>
+      </div>
+      <div class="nav-item">PRODUCTS
+        <div class="dropdown">
+          <a href="#">OP1</a>
+          <a href="#">OP2</a>
+        </div>
+      </div>
+      <div class="nav-item">RETAIL
+        <div class="dropdown">
+          <a href="#">OP1</a>
+          <a href="#">OP2</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Icon" />
+      <div class="dropdown">
+        <a href="#">Logout</a>
+        <a href="#">Reset Password</a>
+        <a href="#">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

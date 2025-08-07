@@ -1,0 +1,138 @@
+/* task.css */
+
+body {
+  margin: 0;
+  background: #0b1441;
+  overflow-x: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #0b1441;
+  overflow: hidden;
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  width: 70px;
+  height: 70px;
+  background: #f0e9c8;
+  border-radius: 50%;
+  box-shadow:
+    10px 10px 75px 20px #0b1441 inset;
+  filter: drop-shadow(0 0 10px #f0e9c8);
+  z-index: 10;
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+  box-shadow: 0 0 6px 2px white;
+}
+
+/* Trees */
+.tree {
+  position: absolute;
+  bottom: 200px;
+  width: 20px;
+  height: 100px;
+  z-index: 5;
+}
+
+/* Trunk */
+.tree .trunk {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 100px;
+  background: #4E342E;
+  border-radius: 4px;
+}
+
+/* Branches = triangle */
+.tree .branches {
+  position: absolute;
+  bottom: 100px;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid #1B5E20;
+  left: -30px;
+  z-index: 4;
+}
+
+/* Road */
+.road {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #111;
+  border-top: 2px solid #333;
+  z-index: 3;
+}
+
+/* Road dividers */
+.divider {
+  position: absolute;
+  bottom: 135px;
+  width: 60px;
+  height: 10px;
+  background: white;
+  border-radius: 3px;
+  z-index: 4;
+}
+
+/* Vehicle */
+.vehicle {
+  position: absolute;
+  bottom: 140px;
+  left: 700px; /* car placed near center */
+  width: 160px;
+  height: 60px;
+  background: #1976D2;
+  border-radius: 15px 15px 5px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  z-index: 6;
+}
+
+.vehicle-top {
+  position: absolute;
+  top: -40px;
+  left: 30px;
+  width: 100px;
+  height: 40px;
+  background: #0D47A1;
+  border-radius: 10px 10px 0 0;
+}
+
+.wheel {
+  position: absolute;
+  bottom: -20px;
+  width: 30px;
+  height: 30px;
+  background: black;
+  border: 3px solid white;
+  border-radius: 50%;
+  z-index: 7;
+}
+
+.wheel.left {
+  left: 25px;
+}
+
+.wheel.right {
+  right: 25px;
+}

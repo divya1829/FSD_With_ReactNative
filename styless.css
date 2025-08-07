@@ -1,0 +1,109 @@
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  width: 380px;
+  height: 220px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #6675af, #3b3e4a);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.world-text {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.chip-img {
+  width: 45px;
+  position: relative;
+  right: 330px;
+  top: 40px;
+}
+
+.details {
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+}
+
+.type {
+  position: absolute;
+  right: -100px;
+  top: -60px;
+  font-size: 16px;
+}
+
+.number {
+  font-size: 18px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.valid-thru {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.valid-thru span:last-child {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.name {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.logo {
+  position: absolute;
+  bottom: 45px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
+  /* opacity: 0.85; */
+}
+
+.red {
+  background: red;
+  left: 0;
+}
+
+.yellow {
+  background: orange;
+  left: 20px;
+}
+
+.master {
+  position: absolute;
+  bottom: -20px;
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+  margin-top: 40px;
+}

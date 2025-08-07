@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+
+}
+.button {
+    text-align: center;
+    font-size: 20px;
+    height: 35px;
+    width: 130px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: rgb(12, 12, 12);
+    color: white;
+    position: relative;
+    z-index: 1;
+    transition: position 1s linear;
+}
+.button:hover {
+    position: relative;
+    top: 20px;
+}
+.button:hover div {
+    position: relative;
+    top: -10px;
+}
+.button::after{
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    content: "";
+    z-index: -1;
+    height: 25px;
+    width: 25px;
+    border: 1px solid rgb(16, 16, 16);
+    background-color: rgba(198, 195, 195, 0.967);
+    border-radius: 50%;
+    transition: all 1s linear;
+}
+.button:hover::after{
+    height: 30px;
+    width: 130px;
+    border-radius: 10px;
+    transform: translateY(-25px) translateX(-15px);
+    opacity: 0.5;
+}

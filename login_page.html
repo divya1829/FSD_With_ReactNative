@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Tech Pulse</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.pinimg.com/1200x/5a/b3/88/5ab38879efc1b8abef90149bf1b2e3c5.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Chat Bubble */
+    .chat-bubble {
+      position: relative;
+      /* background: #93c8cc; */
+      background: rgba(147, 200, 204, 0.2); 
+      color: #fff;
+      width: 420px;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    }
+
+   .chat-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 60px;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: rgba(147, 200, 204, 0.7); /* transparent like bubble */
+  border-bottom: 0;
+  margin-left: -10px;
+}
+
+
+    .chat-bubble h2 {
+      text-align: center;
+      color: #004d55;
+      margin-bottom: 25px;
+    }
+
+    .chat-bubble label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .chat-bubble input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-size: 15px;
+    }
+
+    .chat-bubble input::placeholder {
+      color: #777;
+    }
+
+    .chat-bubble button {
+      width: 100%;
+      padding: 12px;
+      background-color: #053441;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .chat-bubble button:hover {
+      background-color: #6996a1;
+    }
+
+    .signup-link {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #003640;
+    }
+
+    .signup-link a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="chat-bubble">
+    <h2>Login to Tech Pulse</h2>
+    <form>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <button type="submit">Log In</button>
+
+      <div class="signup-link">
+        Don't have an account? <a href="signup1.html">Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

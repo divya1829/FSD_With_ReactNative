@@ -1,0 +1,36 @@
+.parent{
+    height: 500px;
+    width: 500;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+
+}
+.child1, .child2, .child3, .child4{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center; 
+    font-size: 30px;
+    align-items: center;
+}
+.child1{
+    background-color: rgb(168, 240, 240);
+    align-self: start;
+    justify-self:end;
+  
+    
+}
+.child2{
+    background-color: antiquewhite;    
+    align-self: end;
+
+}
+.child3{
+    background-color: rgb(255, 176, 230);
+}
+.child4{
+    background-color: darkgray;
+}

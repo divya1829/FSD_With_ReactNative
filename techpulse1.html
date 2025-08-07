@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Pulse</title>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #4b2c5e;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .navbar {
+      background: #e8c1f8;
+      color: #661d83;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .logo-text { font-size: 20px; font-weight: 700; color: #a72abb; }
+
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 16px; font-weight: 600; color: #c428f4; position: relative; }
+    .nav-links a:hover { text-decoration: underline; }
+
+    /* Learning Path Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+      top: 100%; /* Position below the "Learning Path" link */
+      left: 0;
+      overflow: hidden; /* For rounded corners */
+    }
+
+    .dropdown-content a {
+      color: #4b2c5e;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap; /* Prevent text wrapping */
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Profile Icon and Dropdown */
+    .profile-dropdown {
+      position: relative;
+      cursor: pointer;
+      margin-left: 20px; /* Space from other nav items */
+      color: #fff; /* Ensure text color is white for "Profile" */
+      font-size: 16px; /* Match other nav link font size */
+      font-weight: 600; /* Match other nav link font weight */
+    }
+
+    .profile-dropdown i { /* Hide the profile icon on desktop */
+      display: none;
+    }
+
+    .profile-dropdown:hover {
+        text-decoration: underline;
+    }
+
+    .profile-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+      top: 100%;
+      right: 0; /* Align to the right of the profile icon/text */
+      overflow: hidden;
+    }
+
+    .profile-dropdown-content a {
+      color: #4b2c5e;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+    }
+
+    .profile-dropdown-content a:hover {
+      background-color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    .profile-dropdown:hover .profile-dropdown-content {
+      display: block;
+    }
+
+
+    .hamburger { display: none; font-size: 28px; cursor: pointer; color: #ffffff; }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      background: #f0e7ff;
+      padding: 20px 30px;
+      width: 100%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 99;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-out;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .mobile-menu a {
+      color: #cf60ee;
+      font-weight: 600;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(126, 58, 242, 0.1);
+    }
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* Mobile Learning Path Dropdown */
+    .mobile-menu .dropdown-mobile {
+        position: relative; /* Essential for containing the dropdown content */
+        color: #cf60ee; /* Base text color for "Learning Path" */
+        font-weight: 600;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(126, 58, 242, 0.1);
+    }
+
+    .mobile-menu .dropdown-content-mobile {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        background-color: #e2d7ed; /* Lighter background for nested items */
+        box-shadow: none;
+        min-width: unset;
+        border-radius: 0;
+        margin-left: 20px; /* Indent for sub-items */
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .mobile-menu .dropdown-content-mobile a {
+        color: #bd5ced; /* Darker text for sub-items */
+        background-color: #e2d7ed;
+    }
+    .mobile-menu .dropdown-content-mobile a:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-menu .dropdown-mobile:hover .dropdown-content-mobile {
+        display: flex; /* Show on hover */
+    }
+
+    /* Mobile Profile Dropdown */
+    .mobile-menu .profile-dropdown-mobile {
+        position: relative; /* Essential for containing the dropdown content */
+        color: #cf60ee; /* Base text color for "Profile" */
+        font-weight: 600;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(126, 58, 242, 0.1);
+    }
+
+    .mobile-menu .profile-dropdown-content-mobile {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        background-color: #e2d7ed; /* Lighter background for nested items */
+        box-shadow: none;
+        min-width: unset;
+        border-radius: 0;
+        margin-left: 20px; /* Indent for sub-items */
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .mobile-menu .profile-dropdown-content-mobile a {
+        color: #ac5fc8; /* Darker text for sub-items */
+        background-color: #e2d7ed;
+    }
+    .mobile-menu .profile-dropdown-content-mobile a:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-menu .profile-dropdown-mobile:hover .profile-dropdown-content-mobile {
+        display: flex; /* Show on hover */
+    }
+
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 10%;
+      gap: 40px;
+      background: #bd71d6;
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      flex: 1;
+      animation: fadeInLeft 1s ease-in-out;
+    }
+
+    .hero-left h1 {
+      font-size: 3rem;
+      color: #ffffff;
+      margin-top: -20px;
+    }
+
+    .hero-left p {
+      font-size: 1.2rem;
+      color: #eed3f9;
+      line-height: 1.6;
+    }
+
+    .hero-right {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      border: 8px solid white;
+      border-radius: 400px;
+      margin-left: 100px;
+    }
+
+    .info-section,
+    .why-section {
+      padding: 60px 10%;
+      text-align: center;
+      background-color: #fdf7ff;
+    }
+
+    .info-section h2,
+    .why-section h2 {
+      font-size: 2.5rem;
+      color: #9d31c8;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      font-size: 1.1rem;
+      color: #6b2aac;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .why-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(187, 86, 227, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover { transform: translateY(-10px); }
+
+    .feature i {
+      font-size: 2rem;
+      color: #cd8a48;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      font-size: 1.3rem;
+      color: #7e3af2;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #5d4372;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #bb56e3;
+      color: #ffffff;
+      padding: 30px 10%;
+      text-align: center;
+    }
+
+    footer p { margin-bottom: 10px; }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer a:hover { color: #000; }
+    
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .profile-dropdown { display: none; } /* Hide desktop nav and profile dropdown */
+      .hamburger { display: block; }
+      
+      .mobile-menu {
+        top:65px;
+      }
+      .mobile-menu.show {
+          display: flex;
+          flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <div class="logo-box">
+        <a href="https://icons8.com/icon/b5cIoGIYShtP/brainstorm-skill"></a>
+      </div>
+      <div class="logo-text">Tech Pulse</div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <div class="dropdown">
+        <a href="#">Learning Path</a> <div class="dropdown-content">
+          <a href="#">Explore Courses</a>
+          <a href="#">Knowledge Test</a>
+        </div>
+      </div>
+      <a href="#">Projects</a>
+      <a href="internships.html">Internships</a>
+      <a href="#">Team Connect</a>
+      <a href="#">Resume Builder</a>
+    </div>
+    <div class="profile-dropdown">
+      Profile <div class="profile-dropdown-content">
+        <a href="login3.html">Log In</a>
+        <a href="signup1.html">Sign Up</a>
+        <a href="#">Dashboard</a>
+        <a href="#">To-Do tracker</a>
+        <a href="#">Remainders</a>
+      </div>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#">Home</a>
+    <div class="dropdown-mobile"> <a href="#">Learning Path</a> <div class="dropdown-content-mobile"> <a href="#">Explore Courses</a>
+          <a href="#">Knowledge Test</a>
+        </div>
+    </div>
+    <a href="#">Projects</a>
+    <a href="internships.html">Internships</a>
+    <a href="#">Team Connect</a>
+    <a href="#">Resume Builder</a>
+    <div class="profile-dropdown-mobile"> Profile <div class="profile-dropdown-content-mobile"> 
+        <a href="login3.html">Log In</a>
+        <a href="signup1.html">Sign Up</a>
+        <a href="#">Dashboard</a>
+        <a href="#">To-Do tracker</a>
+        <a href="#">Remainders</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Welcome to Tech Pulse</h1>
+      <p>Your ultimate tech companion for mastering skills, building real-world projects, and staying connected with your team. Dive into curated learning paths and track your progress every step of the way.</p>
+    </div>
+    <div class="hero-right">
+      <video autoplay loop muted playsinline>
+        <source src="../Img/WhatsApp Video 2025-07-29 at 11.26.57 AM.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2>What is Tech Pulse?</h2>
+    <p>Tech Pulse is a centralized platform designed for tech learners and professionals to grow, collaborate, and succeed. Whether you're learning new skills, building real-world projects, or coordinating with your team — Tech Pulse brings everything under one roof.</p>
+  </section>
+
+  <section class="why-section">
+    <h2>Why Choose Tech Pulse?</h2>
+    <div class="why-features">
+      <div class="feature">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Structured Learning Paths</h3>
+        <p>Step-by-step guides tailored to your goals with real-world tech stacks.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-tasks"></i>
+        <h3>Project Tracker</h3>
+        <p>Organize, build, and complete hands-on projects that boost your resume.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-users"></i>
+        <h3>Team Connect</h3>
+        <p>Collaborate and communicate with your peers and mentors easily.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-file-alt"></i>
+        <h3>Smart Resume Builder</h3>
+        <p>Generate polished resumes tailored to your tech expertise in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <h2>Key Highlights</h2>
+    <div class="why-features">
+      <div class="feature">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Innovation Driven</h3>
+        <p>Stay ahead with the latest trends in tech and tools that keep you future-ready.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-chart-line"></i>
+        <h3>Progress Dashboard</h3>
+        <p>Track your learning journey and project milestones with visual insights.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-globe"></i>
+        <h3>Community Access</h3>
+        <p>Join a vibrant community of learners, developers, and innovators.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-bolt"></i>
+        <h3>Quick Onboarding</h3>
+        <p>Get started easily with an intuitive interface and guided setup.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2>What Our Users Say</h2>
+    <div class="why-features">
+      <div class="feature">
+        <i class="fas fa-user-circle"></i>
+        <h3>Divya - Student</h3>
+        <p>“Tech Pulse gave me everything I needed to build projects and land my internship. Highly recommended!”</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-user-circle"></i>
+        <h3>Rahul - Developer</h3>
+        <p>“The Resume Builder and project tracker helped me stay organized while applying for jobs.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section" style="background-color:#f5eaff;">
+    <h2>Ready to Level Up?</h2>
+    <p>Join Tech Pulse and accelerate your tech journey today. Whether you're a beginner or a pro, we’ve got something for you.</p>
+    <div style="margin-top: 20px;">
+      <a href="signup1.html" style="padding: 12px 24px; background: #bb56e3; color: white; border-radius: 8px; font-weight: bold;">Get Started</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tech Pulse. All rights reserved.</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburgerIcon = document.getElementById('hamburger').querySelector('i');
+
+      mobileMenu.classList.toggle('show');
+
+      if (mobileMenu.classList.contains('show')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+      } else {
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+      }
+    }
+  </script>
+
+</body>
+</html>
